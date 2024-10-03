@@ -13,11 +13,18 @@ Create a program that generates Fibonacci numbers less than a limit and writes t
 
 Task: Generate the Fibonacci numbers less than 100 and write them to `fibonacci_100.txt`
 """
+def fibnums_under(top_number):
+	x = [0,1]
 
-def some_function(an_argument):
-    # Do something
-
-    return something
+	while x[-1] + x[-2] < top_number:
+		next_num = x[-1] + x[-2]
+		x.append(next_num)
+	return(x)	
 
 if __name__ == "__main__":
-    # Do stuff here
+    result = fibnums_under(100)
+
+out_file= "fibonacci_100.txt"
+
+with open(out_file, 'w') as f:
+	print(f"The fibonacci numbers under 100:{result}", file = f)
